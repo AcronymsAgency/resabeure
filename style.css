@@ -1,0 +1,98 @@
+/* Red Wine color for light color scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+	--pico-text-selection-color: rgba(128, 0, 32, 0.25);
+	--pico-primary: #800020;
+	--pico-primary-background: #990033;
+	--pico-primary-underline: rgba(128, 0, 32, 0.5);
+	--pico-primary-hover: #66001a;
+	--pico-primary-hover-background: #800020;
+	--pico-primary-focus: rgba(128, 0, 32, 0.5);
+	--pico-primary-inverse: #fff;
+}
+
+/* Red Wine color for dark color scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--pico-text-selection-color: rgba(139, 0, 34, 0.1875);
+		--pico-primary: #a52a2a;
+		--pico-primary-background: #800020;
+		--pico-primary-underline: rgba(139, 0, 34, 0.5);
+		--pico-primary-hover: #b22222;
+		--pico-primary-hover-background: #8b0000;
+		--pico-primary-focus: rgba(139, 0, 34, 0.375);
+		--pico-primary-inverse: #fff;
+	}
+}
+/* Red Wine color for dark color scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme=dark] {
+	--pico-text-selection-color: rgba(139, 0, 34, 0.1875);
+	--pico-primary: #a52a2a;
+	--pico-primary-background: #800020;
+	--pico-primary-underline: rgba(139, 0, 34, 0.5);
+	--pico-primary-hover: #b22222;
+	--pico-primary-hover-background: #8b0000;
+	--pico-primary-focus: rgba(139, 0, 34, 0.375);
+	--pico-primary-inverse: #fff;
+}
+
+
+/**********/
+
+header, footer {
+	margin: 0 auto;
+	padding: 0;
+	width: 100dvw;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-family: system-ui;
+
+	img {
+		display: block;
+		margin: 0 auto;
+		max-width: 200px;
+	}
+}
+
+main {
+	margin: -5rem auto;
+	padding: 0;
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	text-align: center;
+	font-family: system-ui;
+
+	h1,
+	span.logo {
+		font-size: 5rem;
+	}
+
+	table {
+		max-width: 400px;
+
+		tr {
+			th {
+				&:first-child {
+
+				}
+			}
+		}
+
+		h2 {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.tac {
+		text-align: center;
+	}
+}
