@@ -26,6 +26,7 @@
 		--pico-primary-inverse: #fff;
 	}
 }
+
 /* Red Wine color for dark color scheme (Forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme=dark] {
@@ -78,14 +79,6 @@ main {
 	table {
 		max-width: 400px;
 
-		tr {
-			th {
-				&:first-child {
-
-				}
-			}
-		}
-
 		h2 {
 			margin: 0;
 			padding: 0;
@@ -93,6 +86,6 @@ main {
 	}
 
 	.tac {
-		text-align: center;
+		text-align: center !important;
 	}
 }
