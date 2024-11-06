@@ -12,6 +12,15 @@
 <body>
     <header>
         <span class="logo"><img src="https://raulillana.com/res/avatar_raul_illana.jpg"></span>
+        <br>
+        <label for="language-switcher">Select Language:</label>
+        <select id="language-switcher" onchange="translatePage()">
+            <option value="ca" selected>Català</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+        </select>
     </header>
 
     <main>
@@ -59,5 +68,36 @@
     </main>
 
     <footer>© 🍷🍾.ws</footer>
+
+    <script>
+        async function translatePage() {
+            const language = document.getElementById("language-switcher").value;
+
+            // Get the entire HTML content
+            const htmlContent = document.documentElement.outerHTML;
+
+            // Call the Netlify function to translate the HTML file
+            const response = await fetch("/.netlify/functions/translateHtmlFile", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    htmlContent: htmlContent,
+                    sourceLang: "ca",
+                    targetLang: language
+                })
+            });
+
+            if (response.ok) {
+                const translatedHtml = await response.text();
+                document.open(); // Clear the current document
+                document.write(translatedHtml); // Write the translated HTML
+                document.close(); // Close document for rendering
+            } else {
+                console.error("Translation failed:", response.statusText);
+            }
+        }
+    </script>
 </body>
 </html>
