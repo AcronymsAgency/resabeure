@@ -74,7 +74,7 @@
             const language = document.getElementById("language-switcher").value;
 
             // Get the entire HTML content
-            const htmlContent = document.documentElement.outerHTML;
+            const htmlContent = encodeURIComponent(document.documentElement.outerHTML);
 
             // Call the Netlify function to translate the HTML file
             const response = await fetch("/.netlify/functions/translateHtmlFile", {
@@ -95,7 +95,7 @@
                 document.write(translatedHtml); // Write the translated HTML
                 document.close(); // Close document for rendering
             } else {
-                console.error("Translation failed:", response.statusText);
+                console.error("Translation failed: ", response.statusText);
             }
         }
     </script>
