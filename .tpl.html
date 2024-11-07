@@ -68,36 +68,5 @@
     </main>
 
     <footer>© 🍷🍾.ws</footer>
-
-    <script>
-        async function translatePage() {
-            const language = document.getElementById("language-switcher").value;
-
-            // Get the entire HTML content
-            const htmlContent = encodeURIComponent(document.documentElement.outerHTML);
-
-            // Call the Netlify function to translate the HTML file
-            const response = await fetch("/.netlify/functions/translateHtmlFile", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    htmlContent: htmlContent,
-                    sourceLang: "ca",
-                    targetLang: language
-                })
-            });
-
-            if (response.ok) {
-                const translatedHtml = await response.text();
-                document.open(); // Clear the current document
-                document.write(translatedHtml); // Write the translated HTML
-                document.close(); // Close document for rendering
-            } else {
-                console.error("Translation failed: ", response.statusText);
-            }
-        }
-    </script>
 </body>
 </html>
