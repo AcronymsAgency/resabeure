@@ -8,19 +8,22 @@
     <link rel="icon" type="image/x-icon" href="favicon.svg">
     <link rel="stylesheet" href="pico.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="translations.js" defer></script>
 </head>
 <body>
     <header>
         <span class="logo"><img src="https://raulillana.com/res/avatar_raul_illana.jpg"></span>
         <br>
-        <label for="language-switcher">Select Language:</label>
-        <select id="language-switcher" onchange="translatePage()">
-            <option value="ca" selected>Català</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-        </select>
+        <div class="language-selector">
+            <label for="language-switcher">Select Language:</label>
+            <select id="language-switcher">
+                <option value="ca" selected>Català</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
     </header>
 
     <main>
